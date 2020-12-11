@@ -7,24 +7,19 @@ using namespace std;
 class Bag {
     private:
         string color;
-        vector<Bag*> parents;
         vector<pair<int, Bag*>> contents;
+        vector<Bag*> parents;
         bool hasBag, checked;
 
     public:
         Bag(string color);
         string getColor();
-        vector<pair<int, Bag*>>* getContents(void);
-        void setHasBag(bool h);
-        void setChecked(bool c);
+        void addContentBag(int n, Bag* bag);
+        vector<pair<int, Bag*>>* getContents();
+        void addParentBag(Bag* bag);
+        vector<Bag*>* getParents();
+        void setHasBag(bool c);
         bool getHasBag();
+        void setChecked(bool c);
         bool getChecked();
-        void addContent(string col, int n);
-        void addParent(Bag* b);
-        bool isRoot();
-
 };
-
-extern vector<Bag> bags;
-
-Bag* findBag(string color);
